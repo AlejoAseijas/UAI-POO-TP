@@ -25,7 +25,10 @@ namespace TP1.views
         private void button1_Click(object sender, EventArgs e)
         {
             models.Producto producto = getProductoFromUI();
-            productoService.Alta(producto, this.listBox1);
+            if (producto != null)
+            {
+                productoService.Alta(producto, this.listBox1);
+            }
             FormHelper.clearTextBoxAndRadioButtons(this);
         }
 
@@ -88,12 +91,22 @@ namespace TP1.views
             string nombreProducto = this.txtProducto.Text;
             #endregion
 
+            Inventario inventario = null;
             #region Datos Inventario
-            int stock = Int32.Parse(this.txtStock.Text);
-            long precioVenta = long.Parse(this.txtPrecioVenta.Text);
-            long precioCosto = long.Parse(this.txtPrecioCosto.Text);
+            try
+            {
+                int stock = Int32.Parse(this.txtStock.Text);
+                long precioVenta = long.Parse(this.txtPrecioVenta.Text);
+                long precioCosto = long.Parse(this.txtPrecioCosto.Text);
 
-            Inventario inventario = new Inventario(stock, precioCosto, precioVenta);
+                inventario = new Inventario(stock, precioCosto, precioVenta);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al crear inventario: {ex.Message}, No se puede crear el producto");
+                return null;
+            }
+
             #endregion
 
             #region Provedor
@@ -125,7 +138,11 @@ namespace TP1.views
         {
             models.Producto productoFromListBox = FormHelper.getProductoFromListBox(this.listBox1);
             models.Producto productoUI = getProductoFromUI();
-            productoService.Modificar(productoFromListBox, productoUI ,this.listBox1);
+            if (productoUI != null)
+            {
+                productoService.Modificar(productoFromListBox, productoUI, this.listBox1);
+
+            }
             FormHelper.clearTextBoxAndRadioButtons(this);
         }
 
