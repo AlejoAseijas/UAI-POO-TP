@@ -2,14 +2,14 @@
 
 >Se requiere un sistema que permita tener un control de productos. De estos se conoce:
 
-- CategorÌa
-- Sub categorÌa
+- Categor√≠a
+- Sub categor√≠a
 - Nombre
 - Precio costo
 - Precio de venta
 - Stock
 
-Se sabe que adem·s van a existir Productos ElectrÛnicos (Consumo) y Productos Alimenticios (Fecha Vencimiento)
+Se sabe que adem√°s van a existir Productos Electr√≥nicos (Consumo) y Productos Alimenticios (Fecha Vencimiento)
 
 En este MVP solo necesitamos que se pueda:
 
@@ -19,4 +19,4 @@ En este MVP solo necesitamos que se pueda:
 
 ## Diagrama de clases
 
-![image](https://github.com/AlejoAseijas/UAI-POO-TP/assets/54213917/38c8b297-08e3-4fac-b344-b44cfa9cf40a)
+![image](https://github.com/AlejoAseijas/UAI-POO-TP/assets/54213917/d97fc6b3-0544-409e-9928-b75b44ad7c55)
