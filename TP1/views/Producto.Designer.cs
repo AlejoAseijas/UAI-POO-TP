@@ -38,12 +38,15 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtPrecioCosto = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
+            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
@@ -56,9 +59,6 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.txtProvedor = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtPrecioVenta = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -154,6 +154,15 @@
             this.label8.TabIndex = 10;
             this.label8.Text = "Stock";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Precio Venta";
+            // 
             // txtPrecioCosto
             // 
             this.txtPrecioCosto.Location = new System.Drawing.Point(80, 87);
@@ -167,6 +176,13 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(207, 20);
             this.txtStock.TabIndex = 11;
+            // 
+            // txtPrecioVenta
+            // 
+            this.txtPrecioVenta.Location = new System.Drawing.Point(80, 57);
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(207, 20);
+            this.txtPrecioVenta.TabIndex = 13;
             // 
             // label6
             // 
@@ -208,6 +224,19 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Especiales";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "BAJO",
+            "MEDIO",
+            "ALTO"});
+            this.comboBox1.Location = new System.Drawing.Point(109, 19);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(498, 21);
+            this.comboBox1.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
@@ -327,34 +356,6 @@
             this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Nombre";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 61);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Precio Venta";
-            // 
-            // txtPrecioVenta
-            // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(80, 57);
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(207, 20);
-            this.txtPrecioVenta.TabIndex = 13;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "BAJO",
-            "MEDIO",
-            "ALTO"});
-            this.comboBox1.Location = new System.Drawing.Point(109, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(498, 21);
-            this.comboBox1.TabIndex = 2;
             // 
             // Producto
             // 

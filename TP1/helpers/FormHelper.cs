@@ -35,23 +35,13 @@ namespace TP1.helpers
             }
         }
 
-        public static models.Producto getProductoFromListBox(ListBox listBox)
+        public static models.Inventario getProductoFromListBox(ListBox listBox)
         {
-            models.Producto producto = null;
+            models.Inventario inventario = (models.Inventario)listBox.SelectedItem;
+            
 
-            if (listBox.SelectedItem != null)
-            {
-                if (listBox.SelectedItem.ToString().Contains("/"))
-                {
-                    producto = (models.ProductoAlimenticio)listBox.SelectedItem;
-                }
-                else
-                {
-                    producto = (models.ProductoElectronico)listBox.SelectedItem;
-                }
-            }
 
-            return producto;
+            return inventario;
 
         }
 

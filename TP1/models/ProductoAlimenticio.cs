@@ -10,7 +10,7 @@ namespace TP1.models
     {
         //Propiedad solo lectura
         public DateTime FechaDeVencimiento { get; private set; }
-        public ProductoAlimenticio(string categoria, string subcategoria, string nombre, DateTime fechaDeVencimiento, Inventario inventario) : base(categoria, subcategoria, nombre, inventario)
+        public ProductoAlimenticio(string categoria, string subcategoria, string nombre, DateTime fechaDeVencimiento) : base(categoria, subcategoria, nombre)
         {
             this.FechaDeVencimiento = fechaDeVencimiento;
             base.PorcentajeDescuento = 30;
@@ -23,8 +23,7 @@ namespace TP1.models
 
         public override float getDescuento()
         {
-            float precio = this.Inventario.PrecioVenta;
-            return precio - ((precio * this.PorcentajeDescuento) / 100);
+            return  100;
         }
     }
 }

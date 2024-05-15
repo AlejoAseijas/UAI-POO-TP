@@ -10,7 +10,7 @@ namespace TP1.models
     {
         public string Consumo { get; set; }
 
-        public ProductoElectronico(string categoria, string subcategoria, string nombre, string consumo, Inventario inventario) : base(categoria, subcategoria, nombre, inventario)
+        public ProductoElectronico(string categoria, string subcategoria, string nombre, string consumo) : base(categoria, subcategoria, nombre)
         {
             this.Consumo = consumo;
         }
@@ -22,7 +22,7 @@ namespace TP1.models
 
         public override float getDescuento()
         {
-            return this.Inventario.PrecioVenta - 5000;
+            return  5000;
         }
     }
 }

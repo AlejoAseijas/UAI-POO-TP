@@ -14,19 +14,19 @@ namespace TP1.services
         {
         }
 
-        public void Alta(models.Producto producto, ListBox listBox)
+        public void Alta(models.Inventario inventario, ListBox listBox)
         {
-            listBox.Items.Add(producto);
+            listBox.Items.Add(inventario);
         }
 
-        public void Baja(models.Producto producto, ListBox listBox)
+        public void Baja(models.Inventario inventario, ListBox listBox)
         {
-            listBox.Items.Remove(producto);
+            listBox.Items.Remove(inventario);
         }
 
-        public void Modificar(models.Producto productoModificar, models.Producto nuevo, ListBox listBox)
+        public void Modificar(models.Inventario inventarioModificar, models.Inventario nuevo, ListBox listBox)
         { 
-            this.Baja(productoModificar, listBox);
+            this.Baja(inventarioModificar, listBox);
             this.Alta(nuevo, listBox);
         }
     
