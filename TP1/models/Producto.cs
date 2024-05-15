@@ -16,7 +16,6 @@ namespace TP1.models
         public string Nombre { get; set; }
         //Agregacion
         public Proveedor Provedor { get; set; }
-        public float PorcentajeDescuento { get; set; }
 
         #endregion
 
@@ -39,7 +38,7 @@ namespace TP1.models
             return this.Categoria + "-" + this.SubCategoria + "-" + this.Nombre + "-" + "-" + this.Provedor.ToString();
         }
 
-        public abstract float getDescuento();
+        public abstract String GenerarCodigo();
 
         #endregion
 

@@ -13,7 +13,6 @@ namespace TP1.models
         public ProductoAlimenticio(string categoria, string subcategoria, string nombre, DateTime fechaDeVencimiento) : base(categoria, subcategoria, nombre)
         {
             this.FechaDeVencimiento = fechaDeVencimiento;
-            base.PorcentajeDescuento = 30;
         }
 
         public override string ToString()
@@ -21,9 +20,9 @@ namespace TP1.models
             return base.ToString() + "-" + this.FechaDeVencimiento;
         }
 
-        public override float getDescuento()
+        public override string GenerarCodigo()
         {
-            return  100;
+            return this.Nombre + "/" + this.FechaDeVencimiento.ToShortDateString();
         }
     }
 }

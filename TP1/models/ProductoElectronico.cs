@@ -20,9 +20,9 @@ namespace TP1.models
             return base.ToString() + "-" + this.Consumo;
         }
 
-        public override float getDescuento()
+        public override string GenerarCodigo()
         {
-            return  5000;
+            return this.GetHashCode().ToString();
         }
     }
 }
