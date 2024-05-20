@@ -28,6 +28,7 @@ namespace TP1.views
             if (producto != null)
             {
                 productoService.Alta(producto, this.listBox1);
+                MessageBox.Show($"El id del producto es {producto.Producto.GenerarCodigo()}");
             }
             FormHelper.clearTextBoxAndRadioButtons(this);
         }

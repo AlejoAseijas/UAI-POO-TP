@@ -22,7 +22,7 @@ namespace TP1.models
 
         public override string GenerarCodigo()
         {
-            return this.Nombre + "/" + this.FechaDeVencimiento.ToShortDateString();
+            return base.Nombre + "/" + this.FechaDeVencimiento.ToShortDateString();
         }
     }
 }
