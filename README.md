@@ -19,4 +19,4 @@ En este MVP solo necesitamos que se pueda:
 
 ## Diagrama de clases
 
-![image](https://github.com/AlejoAseijas/UAI-POO-TP/assets/54213917/722107d9-5e27-4552-adf6-30ac5eb1faef)
+![image](https://github.com/AlejoAseijas/UAI-POO-TP/assets/54213917/9b493191-e3d6-4256-a734-8e7379dac34e)
