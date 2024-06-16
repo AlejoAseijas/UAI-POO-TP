@@ -24,5 +24,18 @@ namespace TP1.models
         {
             return this.GetHashCode().ToString();
         }
+
+        public override bool Equals(object obj)
+        {
+            bool status = false;
+
+            if (obj is ProductoElectronico)
+            {
+                ProductoElectronico productoElectronico = (ProductoElectronico)obj;
+                status = base.Equals(obj) && this.Consumo == productoElectronico.Consumo;
+            }
+
+            return status;
+        }
     }
 }

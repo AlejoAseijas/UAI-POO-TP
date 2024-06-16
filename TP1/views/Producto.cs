@@ -27,7 +27,7 @@ namespace TP1.views
             models.Inventario producto = getProductoFromUI();
             if (producto != null)
             {
-                productoService.Alta(producto, this.listBox1);
+                productoService.Alta(producto);
                 MessageBox.Show($"El id del producto es {producto.Producto.GenerarCodigo()}");
             }
             FormHelper.clearTextBoxAndRadioButtons(this);
@@ -36,7 +36,7 @@ namespace TP1.views
         private void Form1_Load(object sender, EventArgs e)
         {
             this.groupBox3.Enabled = false;
-            Mock.setMockProductos(this.listBox1);
+            this.listBox1.DataSource = ProductoService.PRODUCTOS;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -144,7 +144,7 @@ namespace TP1.views
 
             if (productoUI != null)
             {
-                productoService.Modificar(productoFromListBox, productoUI, this.listBox1);
+                productoService.Modificar(productoFromListBox, productoUI);
 
             }
 
@@ -154,7 +154,7 @@ namespace TP1.views
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             models.Inventario productoFromListBox = FormHelper.getProductoFromListBox(this.listBox1);
-            productoService.Baja(productoFromListBox, this.listBox1);
+            productoService.Baja(productoFromListBox);
             FormHelper.clearTextBoxAndRadioButtons(this);
         }
     }

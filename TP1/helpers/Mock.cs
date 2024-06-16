@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TP1.models;
+using TP1.services;
 
 namespace TP1.helpers
 {
     public class Mock
     {
-        public static void setMockProductos(ListBox listBox)
+        public static void setMockData()
         {
 
             Proveedor provedor1 = new Proveedor { Nombre = "Proveedor 1" };
@@ -27,12 +28,13 @@ namespace TP1.helpers
             Inventario inventario3 = new Inventario(20, 80, 150, alimenticio1);
             Inventario inventario4 = new Inventario(15, 120, 220, alimenticio2);
 
-            List<models.Inventario> productos = new List<models.Inventario> { inventario1, inventario2, inventario3, inventario4 };
+            Cliente cliente1 = new Cliente() { Nombre = "Juan", Apellido = "Pérez", DNI = "12345678" };
+            Cliente cliente2 = new Cliente() { Nombre = "María", Apellido = "García", DNI = "87654321" };
+            Cliente cliente3 = new Cliente() { Nombre = "Pedro", Apellido = "López", DNI = "11223344" };
+            Cliente cliente4 = new Cliente() { Nombre = "Ana", Apellido = "Martínez", DNI = "44332211" };
 
-            foreach(models.Inventario producto in productos)
-            {
-                listBox.Items.Add(producto);
-            }
+            ProductoService.PRODUCTOS = new List<models.Inventario> { inventario1, inventario2, inventario3, inventario4 };
+            ClienteService.CLIENTES = new List<models.Cliente> {  cliente1, cliente2, cliente3, cliente4 };
 
         }
     }

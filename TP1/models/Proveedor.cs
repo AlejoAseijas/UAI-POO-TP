@@ -21,5 +21,18 @@ namespace TP1.models
         {
             return this.Nombre;
         }
+
+        public override bool Equals(object obj)
+        {
+            bool status = false;
+            
+            if (obj is Proveedor)
+            {
+                Proveedor proveedor = (Proveedor)obj;
+                status = this.Nombre == proveedor.Nombre;
+            }
+            
+            return status;
+        }
     }
 }

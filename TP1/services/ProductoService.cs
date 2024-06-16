@@ -8,26 +8,32 @@ using TP1.models;
 
 namespace TP1.services
 {
-    public class ProductoService
+    public class ProductoService:AbmOperation<models.Inventario>
     {
+        public static List<Inventario> PRODUCTOS = new List<Inventario>();
         public ProductoService()
         {
         }
 
-        public void Alta(models.Inventario inventario, ListBox listBox)
+        public void Alta(models.Inventario inventario)
         {
-            listBox.Items.Add(inventario);
+            PRODUCTOS.Add(inventario);
         }
 
-        public void Baja(models.Inventario inventario, ListBox listBox)
+        public void Baja(models.Inventario inventario)
         {
-            listBox.Items.Remove(inventario);
+            PRODUCTOS.Remove(inventario);
         }
 
-        public void Modificar(models.Inventario inventarioModificar, models.Inventario nuevo, ListBox listBox)
+        public void Modificar(models.Inventario inventarioModificar, models.Inventario nuevo)
         { 
-            this.Baja(inventarioModificar, listBox);
-            this.Alta(nuevo, listBox);
+            foreach(Inventario item in PRODUCTOS)
+            {
+                if (inventarioModificar.Equals(item))
+                {
+                    inventarioModificar = nuevo;
+                }
+            }
         }
     
     }

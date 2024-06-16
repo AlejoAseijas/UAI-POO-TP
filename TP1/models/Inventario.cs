@@ -36,6 +36,21 @@ namespace TP1.models
         {
             return this.Stock + "-" + this.PrecioCosto + "-" + this.PrecioVenta + this.Producto;
         }
+
+        public override bool Equals(object obj)
+        {
+            bool status = false;
+            
+            if (obj is Inventario)
+            {
+                Inventario o = (Inventario)obj;
+
+                status = this.Stock == o.Stock && this.PrecioCosto == o.PrecioCosto && 
+                    this.PrecioVenta == o.PrecioVenta && this.Producto.Equals(o.Producto);
+            }
+
+            return status;
+        }
         #endregion
     }
 }

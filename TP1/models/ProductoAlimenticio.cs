@@ -24,5 +24,18 @@ namespace TP1.models
         {
             return base.Nombre + "/" + this.FechaDeVencimiento.ToShortDateString();
         }
+
+        public override bool Equals(object obj)
+        {
+            bool status = false;
+
+            if (obj is ProductoAlimenticio)
+            {
+                ProductoAlimenticio productoAlimenticio = (ProductoAlimenticio)obj;
+                status = base.Equals(obj) && this.FechaDeVencimiento == productoAlimenticio.FechaDeVencimiento;
+            }
+
+            return status;
+        }
     }
 }

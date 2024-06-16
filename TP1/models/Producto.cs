@@ -40,6 +40,20 @@ namespace TP1.models
 
         public abstract String GenerarCodigo();
 
+        public override bool Equals(object obj)
+        {
+            bool status = false;
+
+            if (obj is Producto)
+            {
+                Producto o = (Producto)obj;
+
+                status = this.Categoria == o.Categoria && this.SubCategoria == o.SubCategoria &&
+                    this.Nombre == o.Nombre && this.Provedor.Equals(o.Provedor);
+            }
+
+            return status;
+        }
         #endregion
 
     }
