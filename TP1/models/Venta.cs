@@ -10,6 +10,5 @@ namespace TP1.models
     {
         //Relacion uno a muchos
         public List<VentaItem> ventaItems;
-        public DateTime fechaVenta;
     }
 }

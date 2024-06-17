@@ -48,7 +48,18 @@ namespace TP1.views
         {
             this.dataGridView1.DataSource = null;
             this.dataGridView1.DataSource = ClienteService.CLIENTES;
-            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+        private void refreshVentas(List<VentaItem> ventasDelCliente)
+        {
+            if (ventasDelCliente != null)
+            {
+                foreach (VentaItem ventaItem in ventasDelCliente)
+                {
+                    this.listBoxVentas.Items.Add(ventaItem);
+                }
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -57,9 +68,29 @@ namespace TP1.views
 
             if( cliente != null ) 
             {
+                this.listBoxVentas.Items.Clear();
+
+                List<VentaItem> ventasDelCliente = null;
+
                 this.txtNombreCliente.Text = cliente.Nombre;
                 this.txtApellidoCliente.Text = cliente.Apellido;
                 this.txtDniCliente.Text = cliente.DNI;
+
+                try 
+                {
+                    Venta ventas = VentaService.VENTAS[cliente];
+                    ventasDelCliente = ventas.ventaItems;
+                }
+                catch (Exception ex ) when (ex.Message == "La clave proporcionada no se encontró en el diccionario.")
+                {
+                    MessageBox.Show("El cliente no tiene ventas");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                refreshVentas(ventasDelCliente);
             }
         }
 
@@ -92,6 +123,11 @@ namespace TP1.views
             clienteService.Baja(cliente);
             FormHelper.clearTextBoxAndRadioButtons(this);
             refreshDataSource();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

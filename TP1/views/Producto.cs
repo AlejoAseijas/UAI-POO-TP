@@ -20,7 +20,7 @@ namespace TP1.views
             InitializeComponent();
         }
 
-        private ProductoService productoService = new ProductoService();
+        private ProductoService productoService = ProductoService.ObtenerInstancia();
 
         private void button1_Click(object sender, EventArgs e)
         {

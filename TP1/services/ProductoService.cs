@@ -11,8 +11,15 @@ namespace TP1.services
     public class ProductoService:AbmOperation<models.Inventario>
     {
         public static List<Inventario> PRODUCTOS = new List<Inventario>();
-        public ProductoService()
+        private static readonly ProductoService productoServiceInstance = new ProductoService();
+
+        private ProductoService()
         {
+        }
+
+        public static ProductoService ObtenerInstancia()
+        {
+            return productoServiceInstance;
         }
 
         public void Alta(models.Inventario inventario)
@@ -33,6 +40,16 @@ namespace TP1.services
                 {
                     inventarioModificar = nuevo;
                 }
+            }
+        }
+
+        public void DisminuirStock(Inventario inventario, int qty)
+        {
+            Inventario inventarioEncontrado = PRODUCTOS.Find(p => p.Equals(inventario));
+
+            if (inventarioEncontrado != null) 
+            {
+                inventarioEncontrado.Stock -= qty;
             }
         }
     

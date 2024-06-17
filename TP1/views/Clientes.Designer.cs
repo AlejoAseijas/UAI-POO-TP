@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.listBoxVentas = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -141,18 +142,29 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(251, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 226);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(855, 426);
+            this.dataGridView1.Size = new System.Drawing.Size(233, 212);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // listBoxVentas
+            // 
+            this.listBoxVentas.FormattingEnabled = true;
+            this.listBoxVentas.Location = new System.Drawing.Point(251, 12);
+            this.listBoxVentas.Name = "listBoxVentas";
+            this.listBoxVentas.Size = new System.Drawing.Size(855, 433);
+            this.listBoxVentas.TabIndex = 3;
             // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1118, 450);
+            this.Controls.Add(this.listBoxVentas);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Name = "Clientes";
@@ -178,5 +190,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ListBox listBoxVentas;
     }
 }

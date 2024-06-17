@@ -11,5 +11,10 @@ namespace TP1.models
         public Producto producto;
         public int qty;
         public float precioVenta;
+
+        public override string ToString()
+        {
+            return producto.ToString() +"- $ "+ this.precioVenta+" - Unidades vendidas: " + this.qty;
+        }
     }
 }

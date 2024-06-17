@@ -44,5 +44,10 @@ namespace TP1.views
         {
             manageMdi(new Clientes());
         }
+
+        private void ventasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

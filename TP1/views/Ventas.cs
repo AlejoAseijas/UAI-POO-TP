@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TP1.Exceptions;
+using TP1.helpers;
 using TP1.models;
 using TP1.services;
 
@@ -19,6 +20,7 @@ namespace TP1.views
         {
             InitializeComponent();
         }
+        private VentaService ventaService = VentaService.ObtenerInstancia();
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -27,18 +29,33 @@ namespace TP1.views
 
         private void refreshDataSource()
         {
-            this.dataGridView2.DataSource = null;
-            this.dataGridView2.DataSource = ProductoService.PRODUCTOS;
-            this.dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewProductos.DataSource = null;
+            this.dataGridViewProductos.DataSource = ProductoService.PRODUCTOS;
+            this.dataGridViewProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            this.dataGridViewClientes.DataSource = null;
+            this.dataGridViewClientes.DataSource = null;    
             this.dataGridViewClientes.DataSource = ClienteService.CLIENTES;
-            this.dataGridViewClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void Ventas_Load(object sender, EventArgs e)
         {
             refreshDataSource();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = (Cliente)this.dataGridViewClientes.CurrentRow.DataBoundItem;
+            Inventario inventario = (Inventario)this.dataGridViewProductos.CurrentRow.DataBoundItem;
+            int qty = Convert.ToInt32(this.txtQty.Text);
+
+            if(cliente != null && inventario != null) 
+            {
+                ventaService.Alta(new Dictionary<Cliente, Inventario>{{ cliente, inventario } }, qty);
+            }
+
+            refreshDataSource();
+            FormHelper.clearTextBoxAndRadioButtons(this);
         }
 
     }
