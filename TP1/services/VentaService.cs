@@ -33,33 +33,37 @@ namespace TP1.services
             Cliente cliente = obj.Keys.FirstOrDefault();
             Inventario inventario = obj[cliente];
             
-            productoService.DisminuirStock(inventario, qty);
+            bool statusProducto = productoService.DisminuirStock(inventario, qty);
 
-            if (VENTAS.ContainsKey(cliente))
+            if (statusProducto)
             {
-                Venta ventaExistente = VENTAS[cliente];
-
-                VentaItem nuevoItem = new VentaItem
+                if (VENTAS.ContainsKey(cliente))
                 {
-                    producto = inventario.Producto,
-                    precioVenta = inventario.PrecioVenta * qty,
-                    qty = qty
-                };
+                    Venta ventaExistente = VENTAS[cliente];
 
-                ventaExistente.ventaItems.Add(nuevoItem);
+                    VentaItem nuevoItem = new VentaItem
+                    {
+                        producto = inventario.Producto,
+                        precioVenta = inventario.PrecioVenta * qty,
+                        qty = qty
+                    };
 
-                VENTAS[cliente] = ventaExistente;
-            }
-            else
-            {
+                    ventaExistente.ventaItems.Add(nuevoItem);
 
-                List<VentaItem> items = new List<VentaItem>
+                    VENTAS[cliente] = ventaExistente;
+                }
+                else
+                {
+
+                    List<VentaItem> items = new List<VentaItem>
                 {
                     new VentaItem() { producto = inventario.Producto, precioVenta = inventario.PrecioVenta * qty, qty = qty }
                 };
 
-                VENTAS.Add(cliente, new Venta() { ventaItems = items });
+                    VENTAS.Add(cliente, new Venta() { ventaItems = items });
+                }
             }
+
         }
 
         public void Baja(Dictionary<Cliente, Inventario> obj)

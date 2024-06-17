@@ -43,14 +43,25 @@ namespace TP1.services
             }
         }
 
-        public void DisminuirStock(Inventario inventario, int qty)
+        public bool DisminuirStock(Inventario inventario, int qty)
         {
             Inventario inventarioEncontrado = PRODUCTOS.Find(p => p.Equals(inventario));
+            bool status = false;
 
             if (inventarioEncontrado != null) 
             {
-                inventarioEncontrado.Stock -= qty;
+                int stockProducto = inventarioEncontrado.Stock;
+                if (stockProducto - qty < 0)
+                {
+                    MessageBox.Show("No hay stock suficiente");
+                }
+                else
+                {
+                    inventarioEncontrado.Stock -= qty;
+                    status = true;
+                }
             }
+            return status;
         }
     
     }
