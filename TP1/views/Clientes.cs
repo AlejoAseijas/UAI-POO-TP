@@ -104,6 +104,7 @@ namespace TP1.views
                 clienteService.Modificar(clienteAModificar, clienteNuevosDatos);
                 FormHelper.clearTextBoxAndRadioButtons(this);
             }
+            refreshDataSource();
         }
 
         private Cliente getClienteFromUI()

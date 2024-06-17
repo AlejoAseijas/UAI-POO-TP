@@ -50,6 +50,7 @@
     <Compile Include="helpers\Mock.cs" />
     <Compile Include="models\Cliente.cs" />
     <Compile Include="models\Proveedor.cs" />
+    <Compile Include="models\TipoDeProducto.cs" />
     <Compile Include="models\Venta.cs" />
     <Compile Include="models\VentaItem.cs" />
     <Compile Include="services\AbmOperation.cs" />

@@ -31,12 +31,15 @@ namespace TP1.views
                 MessageBox.Show($"El id del producto es {producto.Producto.GenerarCodigo()}");
             }
             FormHelper.clearTextBoxAndRadioButtons(this);
+            refresh();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             this.groupBox3.Enabled = false;
-            this.listBox1.DataSource = ProductoService.PRODUCTOS;
+            this.comboBox2.DataSource = null;
+            this.comboBox2.DataSource = Enum.GetValues(typeof(TipoDeProducto));
+            refresh();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -71,12 +74,12 @@ namespace TP1.views
 
                 if (inventario.Producto is models.ProductoElectronico) {
                     models.ProductoElectronico electronico = (models.ProductoElectronico)inventario.Producto;
-                    this.radioButton1.Checked = true;
+                    this.comboBox2.SelectedItem = TipoDeProducto.ELECTRONICO;
                     this.comboBox1.SelectedItem = electronico.Consumo;
                 } else
                 {
                     models.ProductoAlimenticio alimenticio = (models.ProductoAlimenticio)inventario.Producto;
-                    this.radioButton2.Checked = true;
+                    this.comboBox2.SelectedItem = TipoDeProducto.ALIMENTICIO;
                     this.dateTimePicker1.Value = alimenticio.FechaDeVencimiento;
                 }
             }
@@ -104,13 +107,15 @@ namespace TP1.views
             #endregion
 
             #region Valido que radioButton esta checked para generar sus correspondiete Producto
-            if (this.radioButton1.Checked)
+            TipoDeProducto tipoDeProducto = (TipoDeProducto)this.comboBox2.SelectedItem;
+
+            if (TipoDeProducto.ELECTRONICO.Equals(tipoDeProducto))
             {
                 string consumo = this.comboBox1.SelectedItem.ToString();
                 producto = new models.ProductoElectronico(categoria, subCategoria, nombreProducto, consumo);
             }
 
-            if (this.radioButton2.Checked)
+            if (TipoDeProducto.ALIMENTICIO.Equals(tipoDeProducto))
             {
                 DateTime fecha = dateTimePicker1.Value;
                 producto = new models.ProductoAlimenticio(categoria, subCategoria, nombreProducto, fecha);
@@ -156,6 +161,12 @@ namespace TP1.views
             models.Inventario productoFromListBox = FormHelper.getProductoFromListBox(this.listBox1);
             productoService.Baja(productoFromListBox);
             FormHelper.clearTextBoxAndRadioButtons(this);
+        }
+
+        public void refresh() 
+        {
+            this.listBox1.DataSource = null;
+            this.listBox1.DataSource = ProductoService.PRODUCTOS;
         }
     }
 }
