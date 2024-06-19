@@ -10,7 +10,7 @@ namespace TP1.services
 {
     public class ProductoService:AbmOperation<models.Inventario>
     {
-        public static List<Inventario> PRODUCTOS = new List<Inventario>();
+        public List<models.Inventario> items { get; set; }
         private static readonly ProductoService productoServiceInstance = new ProductoService();
 
         private ProductoService()
@@ -24,17 +24,17 @@ namespace TP1.services
 
         public void Alta(models.Inventario inventario)
         {
-            PRODUCTOS.Add(inventario);
+            items.Add(inventario);
         }
 
         public void Baja(models.Inventario inventario)
         {
-            PRODUCTOS.Remove(inventario);
+            items.Remove(inventario);
         }
 
         public void Modificar(models.Inventario inventarioModificar, models.Inventario nuevo)
         { 
-            foreach(Inventario item in PRODUCTOS)
+            foreach(Inventario item in items)
             {
                 if (inventarioModificar.Equals(item))
                 {
@@ -45,7 +45,7 @@ namespace TP1.services
 
         public bool DisminuirStock(Inventario inventario, int qty)
         {
-            Inventario inventarioEncontrado = PRODUCTOS.Find(p => p.Equals(inventario));
+            Inventario inventarioEncontrado = items.Find(p => p.Equals(inventario));
             bool status = false;
 
             if (inventarioEncontrado != null) 

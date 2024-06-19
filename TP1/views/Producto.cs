@@ -166,7 +166,7 @@ namespace TP1.views
         public void refresh() 
         {
             this.listBox1.DataSource = null;
-            this.listBox1.DataSource = ProductoService.PRODUCTOS;
+            this.listBox1.DataSource = ProductoService.ObtenerInstancia().items;
         }
     }
 }

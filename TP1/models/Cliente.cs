@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP1.models
 {
-    public class Cliente
+    public class Cliente : IComparable<Cliente>
     {
         public string Nombre { get; set; }
         public string Apellido { get; set; }
@@ -38,5 +38,9 @@ namespace TP1.models
             return status;
         }
 
+        public int CompareTo(Cliente obj)
+        {
+            return obj == null ? 1 : this.Nombre.CompareTo(obj.Nombre);
+        }
     }
 }

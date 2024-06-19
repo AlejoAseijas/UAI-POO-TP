@@ -12,11 +12,13 @@ namespace TP1.services
 {
     public class ClienteService : AbmOperation<Cliente>
     {
-        public static List<Cliente> CLIENTES = new List<Cliente>();
         private static readonly ClienteService clienteServiceInstance = new ClienteService();
 
-        public ClienteService()
+        public List<Cliente> items { get; set; }
+
+        private ClienteService()
         {
+            items = new List<Cliente>();
         }
 
         public static ClienteService ObtenerInstancia()
@@ -26,9 +28,9 @@ namespace TP1.services
 
         public void Alta(Cliente obj)
         {
-            if (!CLIENTES.Contains(obj))
+            if (!items.Contains(obj))
             {
-                CLIENTES.Add(obj);
+                items.Add(obj);
             }
             else
             {
@@ -38,12 +40,12 @@ namespace TP1.services
 
         public void Baja(Cliente obj)
         {
-            CLIENTES.Remove(obj);
+            items.Remove(obj);
         }
 
         public void Modificar(Cliente obj1, Cliente obj2)
         {
-            foreach (Cliente cliente in CLIENTES) 
+            foreach (Cliente cliente in items) 
             {
                 if (obj1.Equals(cliente)) 
                 {
@@ -54,5 +56,6 @@ namespace TP1.services
                 }
             }
         }
+
     }
 }

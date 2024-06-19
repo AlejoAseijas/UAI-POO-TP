@@ -46,8 +46,12 @@ namespace TP1.views
 
         private void refreshDataSource()
         {
+            List<models.Cliente> clientes = ClienteService.ObtenerInstancia().items;
+
+            clientes.Sort();
+
             this.dataGridView1.DataSource = null;
-            this.dataGridView1.DataSource = ClienteService.CLIENTES;
+            this.dataGridView1.DataSource = clientes;
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 

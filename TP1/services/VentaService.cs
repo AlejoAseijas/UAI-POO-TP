@@ -8,13 +8,13 @@ using TP1.views;
 
 namespace TP1.services
 {
-    public class VentaService:AbmOperation<Dictionary<Cliente, Inventario>>
+    public class VentaService
     {
         public static Dictionary<Cliente, Venta> VENTAS = new Dictionary<Cliente, Venta>();
         private static readonly VentaService ventaServiceInstance = new VentaService();
         private ProductoService productoService = ProductoService.ObtenerInstancia();
 
-        public VentaService()
+        private VentaService()
         {
         }
 

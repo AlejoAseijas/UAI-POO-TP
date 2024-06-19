@@ -33,8 +33,8 @@ namespace TP1.helpers
             Cliente cliente3 = new Cliente() { Nombre = "Pedro", Apellido = "López", DNI = "11223344" };
             Cliente cliente4 = new Cliente() { Nombre = "Ana", Apellido = "Martínez", DNI = "44332211" };
 
-            ProductoService.PRODUCTOS = new List<models.Inventario> { inventario1, inventario2, inventario3, inventario4 };
-            ClienteService.CLIENTES = new List<models.Cliente> {  cliente1, cliente2, cliente3, cliente4 };
+            ProductoService.ObtenerInstancia().items = new List<models.Inventario> { inventario1, inventario2, inventario3, inventario4 };
+            ClienteService.ObtenerInstancia().items = new List<models.Cliente> {  cliente1, cliente2, cliente3, cliente4 };
 
         }
     }

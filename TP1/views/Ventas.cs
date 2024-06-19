@@ -30,11 +30,11 @@ namespace TP1.views
         private void refreshDataSource()
         {
             this.dataGridViewProductos.DataSource = null;
-            this.dataGridViewProductos.DataSource = ProductoService.PRODUCTOS;
+            this.dataGridViewProductos.DataSource = ProductoService.ObtenerInstancia().items;
             this.dataGridViewProductos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             this.dataGridViewClientes.DataSource = null;    
-            this.dataGridViewClientes.DataSource = ClienteService.CLIENTES;
+            this.dataGridViewClientes.DataSource = ClienteService.ObtenerInstancia().items;
             this.dataGridViewClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
