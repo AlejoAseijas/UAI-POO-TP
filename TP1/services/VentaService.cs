@@ -23,10 +23,6 @@ namespace TP1.services
             return ventaServiceInstance;
         }
 
-        public void Alta(Dictionary<Cliente, Inventario> obj)
-        {
-            Alta(obj, 1);
-        }
 
         public void Alta(Dictionary<Cliente, Inventario> obj, int qty)
         {
@@ -66,13 +62,12 @@ namespace TP1.services
 
         }
 
-        public void Baja(Dictionary<Cliente, Inventario> obj)
+        public float ObtenerTotalFacturado()
         {
+            return VENTAS
+                .Values
+                .SelectMany(venta => venta.ventaItems)
+                .Sum(venta => venta.precioVenta);
         }
-
-        public void Modificar(Dictionary<Cliente, Inventario> obj1, Dictionary<Cliente, Inventario> obj2)
-        {
-        }
-
     }
 }

@@ -45,9 +45,9 @@ namespace TP1.views
             manageMdi(new Clientes());
         }
 
-        private void ventasToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void informesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            manageMdi(new Informes());
         }
     }
 }

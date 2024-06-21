@@ -63,6 +63,12 @@
     <Compile Include="views\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="views\Informes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="views\Informes.Designer.cs">
+      <DependentUpon>Informes.cs</DependentUpon>
+    </Compile>
     <Compile Include="views\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,9 @@
     </Compile>
     <EmbeddedResource Include="views\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="views\Informes.resx">
+      <DependentUpon>Informes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

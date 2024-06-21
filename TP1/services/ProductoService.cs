@@ -63,6 +63,16 @@ namespace TP1.services
             }
             return status;
         }
-    
+
+        public List<Inventario> GetProductoAlimenticios()
+        {
+            return items.Where(Inventario => Inventario.Producto is ProductoAlimenticio).ToList();
+        }
+
+        public List<Inventario> GetProductoElectronicos()
+        {
+            return items.Where(Inventario => Inventario.Producto is ProductoElectronico).ToList();
+        }
+
     }
 }
