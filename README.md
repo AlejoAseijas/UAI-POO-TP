@@ -1,4 +1,4 @@
-# Enunciado
+![image](https://github.com/AlejoAseijas/UAI-POO-TP/assets/54213917/e22a2e84-a690-49e7-be1f-3f045fae966b)# Enunciado
 
 >Se requiere un sistema que permita tener un control de productos. De estos se conoce:
 
@@ -19,4 +19,4 @@ En este MVP solo necesitamos que se pueda:
 
 ## Diagrama de clases
 
-![image](https://github.com/AlejoAseijas/UAI-POO-TP/assets/54213917/f304b009-04ac-47c7-85f6-376963b2b53b)
+![image](https://github.com/AlejoAseijas/UAI-POO-TP/assets/54213917/3cf99906-e1f6-4ec8-bcdc-4807132c7100)
