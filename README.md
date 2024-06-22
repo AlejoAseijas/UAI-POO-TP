@@ -1,4 +1,3 @@
-![image](https://github.com/AlejoAseijas/UAI-POO-TP/assets/54213917/e22a2e84-a690-49e7-be1f-3f045fae966b)# Enunciado
 
 >Se requiere un sistema que permita tener un control de productos. De estos se conoce:
 
