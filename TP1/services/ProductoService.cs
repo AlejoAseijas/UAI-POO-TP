@@ -34,13 +34,21 @@ namespace TP1.services
 
         public void Modificar(models.Inventario inventarioModificar, models.Inventario nuevo)
         { 
+            List<Inventario> modificado = new List<Inventario>();
+
             foreach(Inventario item in items)
             {
                 if (inventarioModificar.Equals(item))
                 {
-                    inventarioModificar = nuevo;
+                    modificado.Add(nuevo);
+                }
+                else
+                {
+                    modificado.Add(item);
                 }
             }
+
+            items = modificado;
         }
 
         public bool DisminuirStock(Inventario inventario, int qty)

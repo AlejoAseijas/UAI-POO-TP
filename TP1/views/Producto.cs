@@ -153,6 +153,7 @@ namespace TP1.views
 
             }
 
+            refresh();
             FormHelper.clearTextBoxAndRadioButtons(this);
         }
 
@@ -161,6 +162,7 @@ namespace TP1.views
             models.Inventario productoFromListBox = FormHelper.getProductoFromListBox(this.listBox1);
             productoService.Baja(productoFromListBox);
             FormHelper.clearTextBoxAndRadioButtons(this);
+            refresh();
         }
 
         public void refresh() 

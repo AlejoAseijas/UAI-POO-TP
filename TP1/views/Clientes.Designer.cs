@@ -156,7 +156,7 @@
             this.listBoxVentas.FormattingEnabled = true;
             this.listBoxVentas.Location = new System.Drawing.Point(251, 12);
             this.listBoxVentas.Name = "listBoxVentas";
-            this.listBoxVentas.Size = new System.Drawing.Size(855, 433);
+            this.listBoxVentas.Size = new System.Drawing.Size(864, 433);
             this.listBoxVentas.TabIndex = 3;
             // 
             // Clientes
