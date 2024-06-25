@@ -170,5 +170,27 @@ namespace TP1.views
             this.listBox1.DataSource = null;
             this.listBox1.DataSource = ProductoService.ObtenerInstancia().items;
         }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
+                if (this.comboBox2.SelectedItem != null)
+                {
+                    TipoDeProducto tipoDeProducto = (TipoDeProducto)this.comboBox2.SelectedItem;
+
+                    if (TipoDeProducto.ELECTRONICO.Equals(tipoDeProducto))
+                    {
+                        this.groupBox3.Enabled = true;
+                        this.comboBox1.Enabled = true;
+                        this.dateTimePicker1.Enabled = false;
+                    }
+                    else
+                    {
+                        this.groupBox3.Enabled = true;
+                        this.comboBox1.Enabled = false;
+                        this.dateTimePicker1.Enabled = true;
+                    }
+            }            
+        }
     }
 }
